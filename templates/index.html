@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+   .hero h1 {
+     color: rgb(95, 188, 217);
+     font-size: 4rem;
+   }
+.hero {
+ background: url("static/images/dock1.jpg"); 
+ background-size: cover;
+ background-position: center;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ color: white;
+}
+
+.hero h1 {
+ font-size: 3rem;
+}
+.hero p {
+ font-size: 1.5rem;
+}
+
+@media (max-width: 992px) {
+ 
+ .hero h1 {
+   font-size: 2.5rem;
+ }
+ 
+ .hero p {
+   font-size: 1.25rem;
+ }
+.navbar-brand {
+   font-size: 1.5rem;
+ }
+
+ .btn-lg {
+   padding: 0.75rem 1.5rem;
+   font-size: 1.25rem;
+ }
+}
+@media (max-width: 768px) {
+ 
+ .navbar-nav {
+   text-align: center;
+ }
+
+ .hero {
+   height: 70vh;
+ }
+
+ .hero h1 {
+   font-size: 2rem;
+ }
+.hero p {
+   font-size: 1rem;
+ }
+
+ .btn-lg {
+   font-size: 1rem;
+   padding: 0.5rem 1.25rem;
+ }
+ 
+ .navbar-toggler {
+   margin-right: 0;
+ }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MEDICARE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#app">Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{{url_for('login')}}">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="text-center">
+            <h1>Your Health, Our Priority
+            </h1>
+            <p class="lead text-danger">Committed to Your Wellness Journey
+            </p>
+            <a href="#services" class="btn btn-primary btn-lg">Learn More</a>
+        </div>
+    </section>
+    <section id="services" class="py-5">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Our Services</h2>
+          <p class="lead" >We offer</p>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="static\images\ec.jpg" class="card-img-top" alt="service 1">
+               <div class="card-body">
+                   <h5 class="card-title text-primary">Emergency Care</h5>
+                   <p class="card-text">Immediate treatment for acute illnesse.
+                  </p>
+                   <a class="btn btn-warning" href="#">Learn More</a>
+               </div>
+           </div>
+       </div>
+       <div class="col-md-4">
+            <div class="card">
+              <img src="static\images\dock.png" class="card-img-top" alt="service 1">
+               <div class="card-body">
+                   <h5 class="card-title text-primary">Pharmacy Services</h5>
+                   <p class="card-text"> Medication dispensing and consultation.
+                  </p>
+                   <a class="btn btn-warning" href="#">Learn More</a>
+               </div>
+           </div>
+       </div>
+       <div class="col-md-4">
+            <div class="card">
+              <img src="static\images\lab.jpg" class="card-img-top" alt="service 1">
+               <div class="card-body">
+                   <h5 class="card-title text-primary">Laboratory Services</h5>
+                   <p class="card-text">Blood tests and other diagnostic labs.
+                  </p>
+                   <a class="btn btn-warning" href="#">Learn More</a>
+               </div>
+           </div>
+       </div>
+        </div>
+      </div>
+    </section>
+    <section id="app" class="py-5 bg-light">
+      <div class="container">
+        <div class="row text-center">
+          <h2>Book An Appointment</h2>
+          <p class="lead" >fill the for </p>
+        </div>
+<form action="/submit" method="post" id="apponitmentForm" class="need-validation" novalidate>
+  <div class="mb-3">
+<label for="name" class="form-label">Name</label>
+<input type="text" class="form-control" name="name" placeholder="Enter your name" required>
+<div class="invalid-feedback">Pleas Enter Ur name.</div>
+</div>
+<div class="mb-3">
+  <label for="email" class="form-label">Email</label>
+  <input type="email" class="form-control" name="mail" placeholder="Enter your email" required>
+  <div class="invalid-feedback">Pleas Enter valid Email.</div>
+  </div>
+  <div class="mb-3">
+    <label for="date" class="form-label">Preferred Date</label>
+    <input type="date" class="form-control" name="date" required>
+    <div class="invalid-feedback">Please Select a Date.</div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">submit</button>
+</form>
+        </div>
+    </section>
+    <footer class="bg-info text-white text-center py-2">
+      <p>All Rights Reserved</p>
+    </footer>
+</body>
+</html>
